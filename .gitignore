@@ -3,3 +3,5 @@
 *.sass.map
 *.scss.map
 *.scss
+*.pptx
+/firstLesson/index.html
