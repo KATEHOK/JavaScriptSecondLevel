@@ -131,7 +131,7 @@
   .products {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
-    width: 60%;
+    width: 80%;
   }
   .product-item {
     width: 100%;
