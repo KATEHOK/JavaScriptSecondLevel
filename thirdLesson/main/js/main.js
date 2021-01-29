@@ -20,10 +20,10 @@ class ProductsList {
         }
     }
     getSumPricesOfItems() {
-        const productsList = this.goods;
-        let sum = 0;
-        productsList.forEach(item => sum += item.price);
-        return sum;
+        // const productsList = this.goods;
+        // let sum = 0;
+        // productsList.forEach(item => sum += item.price);
+        return this.goods.reduce((sum, item) => sum += item.price, 0);
     }
 }
 class ProductItem {
@@ -55,3 +55,4 @@ class CartItem {
 
 let list = new ProductsList();
 list.render();
+console.log(list.getSumPricesOfItems());

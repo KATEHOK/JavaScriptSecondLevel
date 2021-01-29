@@ -25,19 +25,7 @@ class Burger {
         return toppings;
     }
     getFullValue(value = 'price') {
-        let sum = 0;
-        for (let item in this) {
-            let element = this[item];
-            if (element[value]) {
-                sum += +element[value];
-            } else {
-                for (let part in element) {
-                    let piece = element[part];
-                    sum += +piece[value];
-                }
-            }
-        }
-        return sum;
+        return this.toppings.reduce((sum, item) => sum += +item[value], +this.size[value] + +this.filling[value]);
     }
 }
 class Param {
