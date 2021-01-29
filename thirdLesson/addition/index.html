@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script defer src="js/main.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food calculator</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <form action="#" class="main-form">
+            <fieldset class="form-items">
+                <legend class="form-items-heading heading">Собери свой бургер!</legend>
+                <fieldset class="form-item">
+                    <legend class="form-item-heading heading">Размер бургера</legend>
+                    <label for="size-big">Большой
+                        <input data-price="100" data-calorie="40" type="radio" name="size" id="size-big" checked>
+                    </label>
+                    <label for="size-small">Маленький
+                        <input data-price="50" data-calorie="20" type="radio" name="size" id="size-small">
+                    </label>
+                </fieldset>
+                <fieldset class="form-item">
+                    <legend class="form-item-heading heading">Основная начинка</legend>
+                    <label for="filling-cheese">Сыр
+                        <input data-price="10" data-calorie="20" type="radio" name="filling" id="filling-cheese"
+                            checked>
+                    </label>
+                    <label for="filling-salat">Салат
+                        <input data-price="20" data-calorie="5" type="radio" name="filling" id="filling-salat">
+                    </label>
+                    <label for="filling-potato">Картофель
+                        <input data-price="15" data-calorie="10" type="radio" name="filling" id="filling-potato">
+                    </label>
+                </fieldset>
+                <fieldset class="form-item">
+                    <legend class="form-item-heading heading">Топпинги</legend>
+                    <label for="topping-spice">Приправа
+                        <input data-price="15" data-calorie="0" type="checkbox" name="topping" id="topping-spice">
+                    </label>
+                    <label for="topping-mayo">Майонез
+                        <input data-price="20" data-calorie="5" type="checkbox" name="topping" id="topping-mayo">
+                    </label>
+                </fieldset>
+            </fieldset>
+            <p>Цена:&nbsp;<span id="price">0</span></p>
+            <p>Калорийность:&nbsp;<span id="calorie">0</span></p>
+            <button id="pack">Собрать</button>
+        </form>
+    </div>
+</body>
+
+</html>

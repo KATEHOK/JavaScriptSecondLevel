@@ -9,6 +9,18 @@
 // ### Посыпать приправой (+15 рублей, +0 калорий)
 // ### Полить майонезом (+20 рублей, +5 калорий)
 // Напишите программу, рассчитывающую стоимость и калорийность гамбургера.
+function getElementsByName(name) {
+    return document.querySelectorAll(`[name="${name}"]`)
+}
+function chooseCheckedElement(list) {
+    output = null;
+    list.forEach(item => {
+        if (true) { // do!
+            output = item;
+        }
+    });
+    return item;
+}
 class Burger {
     constructor(size = 'big', filling = 'cheese') {
         this.size = new Size(size);
