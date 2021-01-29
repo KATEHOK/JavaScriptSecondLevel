@@ -9,89 +9,51 @@
 // ### Посыпать приправой (+15 рублей, +0 калорий)
 // ### Полить майонезом (+20 рублей, +5 калорий)
 // Напишите программу, рассчитывающую стоимость и калорийность гамбургера.
-function getElementsByName(name) {
-    return document.querySelectorAll(`[name="${name}"]`)
-}
-function chooseCheckedElement(list) {
-    output = null;
-    list.forEach(item => {
-        if (true) { // do!
-            output = item;
-        }
-    });
-    return item;
-}
 class Burger {
-    constructor(size = 'big', filling = 'cheese') {
-        this.size = new Size(size);
-        this.filling = new Filling(filling);
+    constructor() {
+        this.size = new Param(document.querySelector('[name="size"]:checked'));
+        this.filling = new Param(document.querySelector('[name="filling"]:checked'));
+        this.toppings = this._fillToppings();
     }
-    /**
-     * Метод добавляет приправу или майонез
-     * @param {string} value может быть 'seasoning' или 'mayo'
-     */
-    addOptional(value = 'seasoning') {
-        this.optional = new Optional(value);
+    _fillToppings() {
+        let toppings = [];
+        document.querySelectorAll('[name="topping"]:checked').forEach(function (item) {
+            if (item) {
+                toppings.push(new Param(item));
+            }
+        });
+        return toppings;
     }
-    /**
-     * Метод возврвщает текущую цену или калорийность бургера
-     * @param {string} value может быть 'price' или 'calorie'
-     */
-    getCurrentValue(value) {
+    getFullValue(value = 'price') {
         let sum = 0;
-        for (let propertyName in this) {
-            sum += this[propertyName][value];
+        for (let item in this) {
+            let element = this[item];
+            if (element[value]) {
+                sum += +element[value];
+            } else {
+                for (let part in element) {
+                    let piece = element[part];
+                    sum += +piece[value];
+                }
+            }
         }
         return sum;
     }
+}
+class Param {
+    constructor(element) {
+        this.name = element.dataset.name;
+        this.price = element.dataset.price;
+        this.calorie = element.dataset.calorie;
+    }
+}
 
-}
-class Size {
-    constructor(value = 'big') {
-        this.value = value;
-        switch (value) {
-            case 'big':
-                this.price = 100;
-                this.calorie = 40;
-                break
-            case 'small':
-                this.price = 50;
-                this.calorie = 20;
-                break
-        }
-    }
-}
-class Filling {
-    constructor(value = 'cheese') {
-        this.value = value;
-        switch (value) {
-            case 'cheese':
-                this.price = 10;
-                this.calorie = 20;
-                break
-            case 'salat':
-                this.price = 20;
-                this.calorie = 5;
-                break
-            case 'potato':
-                this.price = 15;
-                this.calorie = 10;
-                break
-        }
-    }
-}
-class Optional {
-    constructor(value = 'seasoning') {
-        this.value = value;
-        switch (value) {
-            case 'seasoning':
-                this.price = 15;
-                this.calorie = 0;
-                break
-            case 'mayo':
-                this.price = 20;
-                this.calorie = 5;
-                break
-        }
-    }
-}
+const packBtn = document.querySelector('#pack');
+const priceSpan = document.querySelector('#price');
+const calorieSpan = document.querySelector('#calorie');
+let burger = null;
+packBtn.addEventListener('click', () => {
+    burger = new Burger();
+    priceSpan.textContent = burger.getFullValue('price');
+    calorieSpan.textContent = burger.getFullValue('calorie');
+});
