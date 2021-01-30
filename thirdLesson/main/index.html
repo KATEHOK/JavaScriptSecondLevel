@@ -9,9 +9,15 @@
 
 <body>
     <div class="container">
-        <div class="cart hide" id="cart"></div>
+        <div class="cart hide" id="cart">
+            <span class="cart-heading">Корзина</span>
+            <div class="cart-wrapper"></div>
+            <span class="cart-price">Общая стоимость:&nbsp;<span id="cart-price"></span>&nbsp;руб.</span>
+            <button class="btn-cart" id="cart-btn">Перейти к оплате</button>
+            <button class="btn-cart" id="cart-hide">Скрыть</button>
+        </div>
         <header class="main-header">
-            <button class="btn-cart main-header-item" type="button">Корзина</button>
+            <button class="btn-cart" type="button" id="cart-show">Корзина</button>
         </header>
         <main>
             <div class="products"></div>
