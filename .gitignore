@@ -4,8 +4,6 @@
 *.scss.map
 *.scss
 *.pptx
-/firstLesson/index.html
-/secondLesson/OOP_ES5.js
-/secondLesson/src/**
-/secondLesson/ДЗ/**
-/secondLesson/project/**
+/firstLesson/**
+/secondLesson/**
+*/fromYadisc/**

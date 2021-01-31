@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Интернет-магазин</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="cart hide" id="cart">
+            <span class="cart-heading">Корзина</span>
+            <div class="cart-wrapper" id="cart-wrapper"></div>
+            <span class="cart-price">Общая стоимость:&nbsp;<span id="cart-price"></span>&nbsp;руб.</span>
+            <button class="btn-cart" id="cart-btn">Перейти к оплате</button>
+            <button class="btn-cart cart-hide" id="cart-hide">Скрыть</button>
+        </div>
+        <header class="main-header">
+            <button class="btn-cart cart-show" type="button" id="cart-show">Корзина</button>
+        </header>
+        <main>
+            <div class="products"></div>
+        </main>
+        <script src="js/main.js"></script>
+    </div>
+</body>
+
+</html>
