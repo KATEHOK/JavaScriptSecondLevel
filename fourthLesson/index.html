@@ -47,7 +47,21 @@ One: 'Sure. Bye.'`;
         STRClone = STRClone.replace(/\B'/g, `"`); // соответствует кавычкам после несловообразующей границы
         console.log(STRClone);
 
+        document.querySelector('form').addEventListener("submit", eventSubmitHandler);
+        function eventSubmitHandler(event) {
+            event.preventDefault();
+            const name = document.querySelector('#name');
+            const phone = document.querySelector('#phone');
+            const email = document.querySelector('#email');
 
+            if (name.classList.contains('warning')) { name.classList.remove('warning') }
+            if (phone.classList.contains('warning')) { phone.classList.remove('warning') }
+            if (phone.classList.contains('warning')) { phone.classList.remove('warning') }
+
+            if (!/[a-zа-яё]/i.test(name.value)) { name.classList.add('warning') }
+            if (!/[+7]|[8]\d{10}/.test(phone.value)) { phone.classList.add('warning') }
+            if (!/[a-z.-]+@mail.ru/.test(email.value)) { email.classList.add('warning') }
+        }
 
     </script>
 </body>
