@@ -22,30 +22,33 @@ const app = new Vue({
         },
         addProduct(product){
             console.dir(product);
-
-                    //     this.getJson(`${API}/addToBasket.json`)
-        //         .then(data => {
-        //             if(data.result === 1){
-        //                 let productId = +element.dataset['id'];
-        //                 let find = this.allProducts.find(product => product.id_product === productId);
-        //                 if(find){
-        //                     find.quantity++;
-        //                     this._updateCart(find);
-        //                 } else {
-        //                     let product = {
-        //                         id_product: productId,
-        //                         price: +element.dataset['price'],
-        //                         product_name: element.dataset['name'],
-        //                         quantity: 1
-        //                     };
-        //                     this.goods = [product];
-        //                     this.render();
-        //                 }
-        //             } else {
-        //                 alert('Error');
-        //             }
-        //         })
-        //     }
+            const cartItem = this.getElementOfCartById(product.id_product);
+            if (cartItem) {
+                cartItem.quantity++;
+            } else {
+                const newCartItem = {
+                    id_product: product.id_product,
+                    product_name: product.product_name,
+                    price: product.price,
+                    quantity: 1
+                };
+                this.cartProducts.push(newCartItem);
+            }
+        },
+        removeProduct(product) {
+            console.dir(product);
+            if (product.quantity > 1) {
+                product.quantity--;
+            } else {
+                this.cartProducts.pop(product);
+            }
+        },
+        getElementOfCartById(id) {
+            for (item of this.cartProducts) {
+                if (item.id_product == id) {
+                    return item;
+                }
+            }
         }
     },
     mounted(){

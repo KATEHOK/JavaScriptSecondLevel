@@ -30,7 +30,7 @@
                     </div>
                     <div class="right-block">
                         <p class="product-price">${{item.quantity*item.price}}</p>
-                        <button class="del-btn" :data-id="item.id_product">&times;</button>
+                        <button class="del-btn" :data-id="item.id_product" @click="removeProduct(item)">&times;</button>
                     </div>
                 </div>
             </div>
