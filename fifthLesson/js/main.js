@@ -5,9 +5,10 @@ const app = new Vue({
     data: {
         catalogUrl: '/catalogData.json',
         products: [],
+        cartProducts: [],
         imgCatalog: 'https://placehold.it/200x150',
         userSearch: '',
-        show: false
+        show: false,
     },
     methods: {
         getJson(url){
@@ -27,13 +28,7 @@ const app = new Vue({
                for(let el of data){
                    this.products.push(el);
                }
-           });
-        this.getJson(`getProducts.json`)
-            .then(data => {
-                for(let el of data){
-                    this.products.push(el);
-                }
-            })
+           }); 
     }
 })
 
