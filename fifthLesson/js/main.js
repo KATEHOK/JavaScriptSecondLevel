@@ -8,6 +8,7 @@ const app = new Vue({
         products: [],
         cartProducts: [],
         imgCatalog: 'https://placehold.it/200x150',
+        imgCartItem: 'https://placehold.it/50x100',
         userSearch: '',
         show: false,
     },
@@ -20,7 +21,31 @@ const app = new Vue({
                 })
         },
         addProduct(product){
-            console.log(product.id_product);
+            console.dir(product);
+
+                    //     this.getJson(`${API}/addToBasket.json`)
+        //         .then(data => {
+        //             if(data.result === 1){
+        //                 let productId = +element.dataset['id'];
+        //                 let find = this.allProducts.find(product => product.id_product === productId);
+        //                 if(find){
+        //                     find.quantity++;
+        //                     this._updateCart(find);
+        //                 } else {
+        //                     let product = {
+        //                         id_product: productId,
+        //                         price: +element.dataset['price'],
+        //                         product_name: element.dataset['name'],
+        //                         quantity: 1
+        //                     };
+        //                     this.goods = [product];
+        //                     this.render();
+        //                 }
+        //             } else {
+        //                 alert('Error');
+        //             }
+        //         })
+        //     }
         }
     },
     mounted(){
