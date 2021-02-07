@@ -13,6 +13,19 @@ const app = new Vue({
         show: false,
     },
     methods: {
+        filter(e) {
+            e.preventDefault();
+            const regexp = new RegExp(this.userSearch, 'i');
+            this.filtered = this.products.filter(product => regexp.test(product.product_name));
+            this.products.forEach(el => {
+                const block = document.querySelector(`.product-item[data-id="${el.id_product}"]`);
+                if(!this.filtered.includes(el)){
+                    block.classList.add('invisible');
+                } else {
+                    block.classList.remove('invisible');
+                }
+            })
+        },
         getJson(url){
             return fetch(url)
                 .then(result => result.json())
