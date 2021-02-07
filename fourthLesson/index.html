@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+
+<body>
+    <!-- Выполню и пришлю после занятия -->
+    <form action="#" class="container">
+        <input class="input" type="text" name="name" id="name" placeholder="Введите Ваше имя">
+        <input class="input" type="text" name="phone" id="phone" placeholder="Введите Ваш номер телефона">
+        <input class="input" type="text" name="email" id="email" placeholder="Введите Вашу почту">
+        <textarea class="input" name="message" id="message" cols="30" rows="10"
+            placeholder="Введите Ваш сообщение"></textarea>
+        <div class="btns">
+            <input class="btn" type="submit" value="search">
+            <input class="btn" type="reset" value="delete">
+        </div>
+    </form>
+    <script>
+        'use strict';
+
+        const STR = `One: 'Hi Mary.' Two: 'Oh, hi.'
+One: 'How are you doing?'
+Two: 'I'm doing alright. How about you?'
+One: 'Not too bad. The weather is great isn't it?'
+Two: 'Yes. It's absolutely beautiful today.'
+One: 'I wish it was like this more frequently.'
+Two: 'Me too.'
+One: 'So where are you going now?'
+Two: 'I'm going to meet a friend of mine at the department store.'
+One: 'Going to do a little shopping?'
+Two: 'Yeah, I have to buy some presents for my parents.'
+One: 'What's the occasion?'
+Two: 'It's their anniversary.'
+One: 'That's great. Well, you better get going. You don't want to be late.'
+Two: 'I'll see you next time.'
+One: 'Sure. Bye.'`;
+
+        console.log(STR.replace(/'/g, `"`));
+
+        let STRClone = STR.replace(/'\B/g, `"`); // соответствует кавычкам перед несловообразующей границей
+        STRClone = STRClone.replace(/\B'/g, `"`); // соответствует кавычкам после несловообразующей границы
+        console.log(STRClone);
+
+        document.querySelector('form').addEventListener("submit", eventSubmitHandler);
+        function eventSubmitHandler(event) {
+            event.preventDefault();
+            const name = document.querySelector('#name');
+            const phone = document.querySelector('#phone');
+            const email = document.querySelector('#email');
+
+            if (name.classList.contains('warning')) { name.classList.remove('warning') }
+            if (phone.classList.contains('warning')) { phone.classList.remove('warning') }
+            if (phone.classList.contains('warning')) { phone.classList.remove('warning') }
+
+            if (!/[a-zа-яё]/i.test(name.value)) { name.classList.add('warning') }
+            if (!/[+7]|[8]\d{10}/.test(phone.value)) { phone.classList.add('warning') }
+            if (!/[a-z.-]+@mail.ru/.test(email.value)) { email.classList.add('warning') }
+        }
+
+    </script>
+</body>
+
+</html>
