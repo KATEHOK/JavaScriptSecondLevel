@@ -26,20 +26,12 @@ const app = new Vue({
                 })
         },
         addProduct(product) {
-            const cartItem = this.getElementOfCartById(product.id_product);
+            const cartItem = this.cartProducts.find(el => el.id_product === product.id_product);
             if (cartItem) {
                 cartItem.quantity++;
             } else {
-                this.cartProducts.push(this.createCartItem(product));
+                this.cartProducts.push(Object.assign({ quantity: 1 }, product));
             }
-        },
-        createCartItem(productItem) {
-            return {
-                id_product: productItem.id_product,
-                product_name: productItem.product_name,
-                price: productItem.price,
-                quantity: 1,
-            };
         },
         removeProduct(product) {
             if (product.quantity > 1) {
@@ -48,13 +40,6 @@ const app = new Vue({
                 this.cartProducts.pop(product);
             }
         },
-        getElementOfCartById(id) {
-            for (item of this.cartProducts) {
-                if (item.id_product == id) {
-                    return item;
-                }
-            }
-        }
     },
     mounted() {
         this.getJson(`${API + this.catalogUrl}`)

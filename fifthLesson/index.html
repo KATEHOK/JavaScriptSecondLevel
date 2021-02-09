@@ -20,7 +20,8 @@
                     </button>
                 </form>
                 <button class="btn-cart" type="button" @click="show = !show">Корзина</button>
-                <div class="cart-block" v-if="show">
+                <div class="cart-block" v-show="show">
+                    <p v-if="!cartProducts.length">Cart is empty</p>
                     <div class="cart-item" :data-id="this.id_product" v-for="item of cartProducts"
                         :key="item.id_product">
                         <div class="product-bio">
@@ -28,7 +29,7 @@
                             <div class="product-desc">
                                 <p class="product-title">{{item.product_name}}</p>
                                 <p class="product-quantity">Quantity: {{item.quantity}}</p>
-                                <p class="product-single-price">{{item.price}} each</p>
+                                <p class="product-single-price">${{item.price}} each</p>
                             </div>
                         </div>
                         <div class="right-block">
@@ -38,7 +39,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="cart-block invisible" v-else="show"></div>
         </header>
         <main>
             <div class="products">
