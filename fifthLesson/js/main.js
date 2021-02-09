@@ -6,6 +6,7 @@ const app = new Vue({
         catalogUrl: '/catalogData.json',
         cartUrl: '/getBasket.json',
         products: [],
+        filtered: [],
         cartProducts: [],
         imgCatalog: 'https://placehold.it/200x150',
         imgCartItem: 'https://placehold.it/50x100',
@@ -13,43 +14,34 @@ const app = new Vue({
         show: false,
     },
     methods: {
-        filter(e) {
-            e.preventDefault();
+        filter() {
             const regexp = new RegExp(this.userSearch, 'i');
             this.filtered = this.products.filter(product => regexp.test(product.product_name));
-            this.products.forEach(el => {
-                const block = document.querySelector(`.product-item[data-id="${el.id_product}"]`);
-                if(!this.filtered.includes(el)){
-                    block.classList.add('invisible');
-                } else {
-                    block.classList.remove('invisible');
-                }
-            })
         },
-        getJson(url){
+        getJson(url) {
             return fetch(url)
                 .then(result => result.json())
                 .catch(error => {
                     console.log(error);
                 })
         },
-        addProduct(product){
-            console.dir(product);
+        addProduct(product) {
             const cartItem = this.getElementOfCartById(product.id_product);
             if (cartItem) {
                 cartItem.quantity++;
             } else {
-                const newCartItem = {
-                    id_product: product.id_product,
-                    product_name: product.product_name,
-                    price: product.price,
-                    quantity: 1
-                };
-                this.cartProducts.push(newCartItem);
+                this.cartProducts.push(this.createCartItem(product));
             }
         },
+        createCartItem(productItem) {
+            return {
+                id_product: productItem.id_product,
+                product_name: productItem.product_name,
+                price: productItem.price,
+                quantity: 1,
+            };
+        },
         removeProduct(product) {
-            console.dir(product);
             if (product.quantity > 1) {
                 product.quantity--;
             } else {
@@ -64,19 +56,20 @@ const app = new Vue({
             }
         }
     },
-    mounted(){
+    mounted() {
         this.getJson(`${API + this.catalogUrl}`)
-           .then(data => {
-               for(let el of data){
-                   this.products.push(el);
-               }
-           });
+            .then(data => {
+                for (let el of data) {
+                    this.products.push(el);
+                    this.filtered.push(el);
+                }
+            });
         this.getJson(`${API + this.cartUrl}`)
-           .then(data => {
-               for(let el of data.contents){
-                   this.cartProducts.push(el);
-               }
-           });
+            .then(data => {
+                for (let el of data.contents) {
+                    this.cartProducts.push(el);
+                }
+            });
     }
 })
 
