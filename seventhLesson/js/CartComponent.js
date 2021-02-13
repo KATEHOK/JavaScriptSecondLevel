@@ -76,6 +76,7 @@ const cart = {
             <cart-item v-for="item of cartItems" :key="item.id_product" :item="item">
             </cart-item>
             <connection v-if="!this.$data.cartConnection" :name="'Cart'"></connection>
+            <span v-if="this.$data.cartItems.length == 0">Cart is empty</span>
         </div>
     `
 };
