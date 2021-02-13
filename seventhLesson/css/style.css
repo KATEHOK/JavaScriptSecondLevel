@@ -113,6 +113,11 @@ p {
     color: #2f2a2d;
     border: 1px solid #2f2a2d;
 }
+.buy-btn:active, .del-btn:active {
+    background-color: #2f2a2d;
+    color: #fafafa;
+    border: 1px solid transparent;
+}
 .cart-item {
     display: flex;
     justify-content: space-between;
