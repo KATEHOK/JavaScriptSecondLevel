@@ -8,6 +8,7 @@ const app = new Vue({
         showCart: false,
         catalogUrl: '/catalogData.json',
         cartUrl: '/getBasket.json',
+        addProductUrl: '/addToBasket.json',
         cartItems: [],
         filtered: [],
         imgCart: 'https://placehold.it/50x100',
@@ -23,7 +24,7 @@ const app = new Vue({
                 .catch(error => console.log(error))
         },
         addProduct(item) {
-            this.getJson(`${API}/addToBasket.json`)
+            this.getJson(`${API}${this.addProductUrl}`)
                 .then(data => {
                     if (data.result === 1) {
                         let find = this.cartItems.find(el => el.id_product === item.id_product);
@@ -37,7 +38,7 @@ const app = new Vue({
                 })
         },
         remove(item) {
-            this.getJson(`${API}/addToBasket.json`)
+            this.getJson(`${API}${this.addProductUrl}`)
                 .then(data => {
                     if (data.result === 1) {
                         if (item.quantity > 1) {
