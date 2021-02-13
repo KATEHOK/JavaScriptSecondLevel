@@ -124,6 +124,7 @@ p {
 }
 .cart-item img{
     align-self: flex-start;
+    width: 80px;
     margin-right: 15px;
 }
 .product-single-price{

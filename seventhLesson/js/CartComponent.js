@@ -1,18 +1,18 @@
 const cartItem = {
-    props: ['img', 'cartItem'],
+    props: ['item'],
     template: `
     <div class="cart-item">
         <div class="product-bio">
-            <img :src="img" alt="Some img">
+            <img :src="item.img" alt="Some img">
             <div class="product-desc">
-                <div class="product-title">{{ cartItem.product_name }}</div>
-                <div class="product-quantity">Quantity: {{ cartItem.quantity }}</div>
-                <div class="product-single-price">$ {{ cartItem.price }} each</div>
+                <div class="product-title">{{ item.product_name }}</div>
+                <div class="product-quantity">Quantity: {{ item.quantity }}</div>
+                <div class="product-single-price">$ {{ item.price }} each</div>
             </div>
         </div>
         <div class="right-block">
-            <div class="product-price">\${{cartItem.quantity*cartItem.price}}</div>
-            <button class="del-btn" @click="$parent.remove(cartItem)">&times;</button>
+            <div class="product-price">\${{item.quantity*item.price}}</div>
+            <button class="del-btn" @click="$parent.remove(item)">&times;</button>
         </div>
     </div>
     `
@@ -24,7 +24,6 @@ const cart = {
             addProductUrl: '/addToBasket.json',
             cartUrl: '/getBasket.json',
             cartItems: [],
-            imgCart: 'https://placehold.it/50x100',
             cartConnection: true,
             showCart: false,
         }
@@ -65,6 +64,7 @@ const cart = {
                 // console.dir(data);
                 for (let item of data.contents) {
                     // console.log(item);
+                    item.img = `img/id_product-${item.id_product}.png`;
                     this.$data.cartItems.push(item);
                     this.$data.cartConnection = true;
                 }
@@ -73,7 +73,7 @@ const cart = {
     },
     template: `
         <div class="cart-block" v-show="showCart">
-            <cart-item v-for="item of cartItems" :key="item.id_product" :img="imgCart" :cart-item="item">
+            <cart-item v-for="item of cartItems" :key="item.id_product" :item="item">
             </cart-item>
             <connection v-if="!this.$data.cartConnection" :name="'Cart'"></connection>
         </div>
