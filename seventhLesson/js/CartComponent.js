@@ -11,7 +11,7 @@ const cartItem = {
             </div>
         </div>
         <div class="right-block">
-            <div class="product-price">{{cartItem.quantity*cartItem.price}}</div>
+            <div class="product-price">\${{cartItem.quantity*cartItem.price}}</div>
             <button class="del-btn" @click="$parent.remove(cartItem)">&times;</button>
         </div>
     </div>

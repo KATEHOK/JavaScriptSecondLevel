@@ -58,7 +58,7 @@ p {
     overflow: hidden;
     margin: 20px 0;
 }
-img {
+.product-item-img {
     max-width: 100%;
     height: auto
 }
