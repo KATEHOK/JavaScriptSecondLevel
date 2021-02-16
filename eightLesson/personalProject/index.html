@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GadgetHub</title>
+    <link rel="stylesheet" href="style/style.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script defer src="js/CartComponent.js"></script>
+    <script defer src="js/main.js"></script>
+</head>
+
+<body>
+    <div class="body-container" id="app">
+        <div class="main-wrapper container">
+            <header class="main-header">
+                <div class="main-header-logo-wrapper"></div>
+                <h1 class="main-header-title">GadgetHub</h1>
+                <div class="main-header-icons">
+                    <a href="#" class="main-header-catalog-link main-header-icon" target="_blank">Catalog</a>
+                    <button class="main-header-cart-btn main-header-icon"
+                        @click="$root.$refs.cart.showCart = !$root.$refs.cart.showCart">Show
+                        cart</button>
+                    <button class="main-header-door-btn main-header-icon">Sign in</button>
+                    <cart ref="cart"></cart>
+                </div>
+            </header>
+        </div>
+
+        <footer class="main-footer container"></footer>
+    </div>
+</body>
+
+</html>

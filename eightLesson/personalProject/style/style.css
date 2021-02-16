@@ -1,0 +1,196 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.body-container {
+  width: 100%;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #f7e2d7;
+}
+
+.container {
+  width: 100%;
+  max-width: 1440px;
+}
+
+.main-wrapper {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.main-header {
+  background-color: #e9a079;
+  width: 100%;
+  height: 100px;
+  padding: 15px;
+  border-radius: 20px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  position: relative;
+}
+
+.main-header-title {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  color: #7a3c1a;
+  font-weight: 500;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 44px;
+  margin-left: 30px;
+  letter-spacing: 0.04em;
+}
+
+.main-header-icons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.main-header-icon {
+  font-size: large;
+  line-height: 56px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  margin-left: 15px;
+  padding: 0 40px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: #f7e2d7;
+  border: 2px solid #efc5af;
+  height: 60px;
+  color: #95451a;
+  outline: none;
+  border-radius: 10px;
+  -webkit-transition: background-color 300ms ease-out, border-color 300ms ease-out, color 300ms ease-out;
+  transition: background-color 300ms ease-out, border-color 300ms ease-out, color 300ms ease-out;
+}
+
+.main-header-icon:hover {
+  background-color: #95451a;
+  border-color: #f7e2d7;
+  color: #efc5af;
+}
+
+.main-header-icon:active {
+  background-color: #f7e2d7;
+  border-color: #efc5af;
+  color: #95451a;
+}
+
+.main-header-catalog-link {
+  margin: 0;
+}
+
+.main-header-logo-wrapper {
+  width: 75px;
+  height: 75px;
+  background-color: #f7e2d7;
+  border-radius: 50%;
+  border: 2px solid #efc5af;
+}
+
+.cart {
+  position: absolute;
+  top: 85px;
+  right: 0;
+  max-width: 800px;
+  background-color: #f7e2d7;
+  border: 2px solid #b97a57;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 15px;
+  padding: 15px;
+}
+
+.cart-controlers {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.cart-controlers-item {
+  margin-left: 20px;
+}
+
+.cart-controlers-sum, .cart-controlers-quantity {
+  color: #95451a;
+  font-weight: 600;
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.cart-controlers-pay-btn, .cart-controlers-close-btn {
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 20px;
+  background-color: #f7e2d7;
+  border: 2px solid #efc5af;
+  color: #95451a;
+  outline: none;
+  height: 33.33333px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  line-height: 29.33333px;
+  padding: 0 10px;
+  border-radius: 5px;
+  -webkit-transition: background-color 300ms ease-out, border-color 300ms ease-out, color 300ms ease-out;
+  transition: background-color 300ms ease-out, border-color 300ms ease-out, color 300ms ease-out;
+}
+
+.cart-controlers-pay-btn:hover, .cart-controlers-close-btn:hover {
+  background-color: #95451a;
+  color: #efc5af;
+  border-color: #f7e2d7;
+}
+
+.cart-controlers-pay-btn:active, .cart-controlers-close-btn:active {
+  background-color: #f7e2d7;
+  border-color: #efc5af;
+  color: #95451a;
+}
+
+.main-footer {
+  background-color: #b97a57;
+  height: 50px;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.hide {
+  display: none;
+}
+/*# sourceMappingURL=style.css.map */
