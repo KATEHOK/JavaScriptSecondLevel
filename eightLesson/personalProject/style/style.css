@@ -50,14 +50,6 @@
   position: relative;
 }
 
-.logo-wrapper {
-  width: 75px;
-  height: 75px;
-  background-color: #f7e2d7;
-  border-radius: 50%;
-  border: 2px solid #efc5af;
-}
-
 .main-header-title {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
@@ -114,6 +106,14 @@
 
 .main-header-catalog-link {
   margin: 0;
+}
+
+.main-header-logo-wrapper {
+  width: 75px;
+  height: 75px;
+  background-color: #f7e2d7;
+  border-radius: 50%;
+  border: 2px solid #efc5af;
 }
 
 .cart {
