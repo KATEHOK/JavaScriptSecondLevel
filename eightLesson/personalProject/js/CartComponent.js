@@ -67,6 +67,21 @@ const cart = {
                 <span class="cart-controlers-quantity cart-controlers-item">Total items:&nbsp;{{ $data.totalItems }}</span>
                 <button class="cart-controlers-pay-btn cart-controlers-item">Pay</button>
                 <button class="cart-controlers-close-btn cart-controlers-item" @click="$data.showCart = !$data.showCart">&times;</button>
+            </div>
+            <div class="cart-items">
+                <div class="cart-items-item">
+                    <img class="cart-items-item-img" src="img/id_product-123.png">
+                    <div class="cart-items-item-controlers">
+                        <span class="cart-items-item-controlers-item">{{ 'Netebook' }}</span>
+                        <span class="cart-items-item-controlers-item">Single:&nbsp;\${{ 999 }}</span>
+                        <div class="cart-items-item-controlers-item cart-items-item-controlers-wrapper">
+                            <button class="cart-items-item-controlers-wrapper-btn">-</button>
+                            <span class="cart-items-item-controlers-wrapper-quantity">{{ 2 }}</span>
+                            <button class="cart-items-item-controlers-wrapper-btn">+</button>
+                        </div>
+                        <span class="cart-items-item-controlers-item">Total:&nbsp;\${{ 1998 }}</span>
+                    </div>
+                </div>
             </div>        
         </div>
     `
