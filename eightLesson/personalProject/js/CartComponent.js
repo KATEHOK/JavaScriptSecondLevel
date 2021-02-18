@@ -1,7 +1,19 @@
 const cartItem = {
     props: ['item'],
     template: `
-    <div class="cart-items"></div>
+        <div class="cart-items-item">
+            <img class="cart-items-item-img" :src="item.img">
+            <div class="cart-items-item-controlers">
+                <span class="cart-items-item-controlers-item">{{ item.product_name }}</span>
+                <span class="cart-items-item-controlers-item">Single:&nbsp;\${{ item.price }}</span>
+                <div class="cart-items-item-controlers-item cart-items-item-controlers-wrapper">
+                    <button class="cart-items-item-controlers-wrapper-btn">-</button>
+                    <span class="cart-items-item-controlers-wrapper-quantity">{{ item.quantity }}</span>
+                    <button class="cart-items-item-controlers-wrapper-btn">+</button>
+                </div>
+                <span class="cart-items-item-controlers-item">Total:&nbsp;\${{ item.price * item.quantity }}</span>
+            </div>
+        </div>
     `
 };
 
@@ -17,8 +29,15 @@ const cart = {
             totalItems: 0,
         }
     },
-    // components: { cartItem },
+    components: { cartItem },
     methods: {
+        getTotal(name) {
+            result = 0
+            for (item of this.$data.cartItems) {
+                result += item[name];
+            }
+            return result;
+        }
         //     addProduct(item) {
         //         this.$root.getJson(`${API}${this.addProductUrl}`)
         //             .then(data => {
@@ -46,45 +65,32 @@ const cart = {
 
         //             })
         //     },
-        // },
-        // mounted() {
-        //     this.$root.getJson(`${API}${this.$data.cartUrl}`)
-        //         .then(data => {
-        //             // console.dir(data);
-        //             for (let item of data.contents) {
-        //                 // console.log(item);
-        //                 item.img = `img/id_product-${item.id_product}.png`;
-        //                 this.$data.cartItems.push(item);
-        //                 this.$data.cartConnection = true;
-        //             }
-        //         })
+    },
+    mounted() {
+        this.$root.getJson(`${API}${this.$data.cartUrl}`)
+            .then(data => {
+                // console.dir(data);
+                for (let item of data.contents) {
+                    item.img = `img/id_product-${item.id_product}.png`;
+                    // console.log(item);
+                    this.$data.cartItems.push(item);
+                    // this.$data.cartConnection = true;
+                }
+            });
         //         .catch(() => this.$data.cartConnection = false);
     },
     template: `
         <div class="cart" v-show="$data.showCart">
             <div class="cart-controlers">
-                <span class="cart-controlers-sum cart-controlers-item">Total coast:&nbsp;\${{ $data.totalCoast }}</span>
-                <span class="cart-controlers-quantity cart-controlers-item">Total items:&nbsp;{{ $data.totalItems }}</span>
+                <span class="cart-controlers-sum cart-controlers-item">Total coast:&nbsp;\${{ getTotal('price') }}</span>
+                <span class="cart-controlers-quantity cart-controlers-item">Total items:&nbsp;{{ getTotal('quantity') }}</span>
                 <button class="cart-controlers-pay-btn cart-controlers-item">Pay</button>
                 <button class="cart-controlers-close-btn cart-controlers-item" @click="$data.showCart = !$data.showCart">&times;</button>
             </div>
             <div class="cart-items">
-                <div class="cart-items-item">
-                    <img class="cart-items-item-img" src="img/id_product-123.png">
-                    <div class="cart-items-item-controlers">
-                        <span class="cart-items-item-controlers-item">{{ 'Netebook' }}</span>
-                        <span class="cart-items-item-controlers-item">Single:&nbsp;\${{ 999 }}</span>
-                        <div class="cart-items-item-controlers-item cart-items-item-controlers-wrapper">
-                            <button class="cart-items-item-controlers-wrapper-btn">-</button>
-                            <span class="cart-items-item-controlers-wrapper-quantity">{{ 2 }}</span>
-                            <button class="cart-items-item-controlers-wrapper-btn">+</button>
-                        </div>
-                        <span class="cart-items-item-controlers-item">Total:&nbsp;\${{ 1998 }}</span>
-                    </div>
-                </div>
-            </div>        
+                <cart-item v-for="item of cartItems" :key="item.id_product" :item="item"></cart-item>
+            </div>    
         </div>
     `
     // <connection v-if="!this.$data.cartConnection" :name="'Cart'"></connection>
-    // <cart-item v-for="item of cartItems" :key="item.id_product" :item="item"></cart-item>
 };
