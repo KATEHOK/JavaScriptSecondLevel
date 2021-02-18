@@ -2,7 +2,6 @@
 *.css.map
 *.sass.map
 *.scss.map
-*.scss
 *.pptx
 /firstLesson/**
 /secondLesson/**
