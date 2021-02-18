@@ -1,0 +1,229 @@
+$header-height: 100px;
+* {
+    margin: 0;
+    padding: 0;
+}
+.body-container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(247, 226, 215);
+}
+.container {
+    width: 100%;
+    max-width: 1440px;
+}
+.main-wrapper {
+    flex-grow: 1;
+}
+.main-header {
+    background-color: rgb(233, 160, 121);
+    width: 100%;
+    height: $header-height;
+    padding: $header-height * 0.15;
+    border-radius: 20px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+
+    &-title {
+        flex-grow: 1;
+        color: rgb(122, 60, 26);
+        font-weight: 500;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 44px;
+        margin-left: 30px;
+        letter-spacing: 0.04em;
+    }
+    &-icons {
+        display: flex;
+        justify-content: space-between;
+    }
+    &-icon {
+        font-size: large;
+        line-height: $header-height * 0.60 - 4px;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 500;
+        margin-left: 15px;
+        padding: 0 40px;
+        box-sizing: border-box;
+        background-color: rgb(247, 226, 215);
+        border: 2px solid rgb(239, 197, 175);
+        height: $header-height * 0.60;
+        color:rgb(149, 69, 26);
+        outline: none;
+        border-radius: 10px;
+        transition: background-color 300ms ease-out,
+                    border-color 300ms ease-out,
+                    color 300ms ease-out;
+    
+        &:hover {
+            background-color: rgb(149, 69, 26);
+            border-color: rgb(247, 226, 215);
+            color: rgb(239, 197, 175);
+        }
+    
+        &:active {
+            background-color: rgb(247, 226, 215);
+            border-color: rgb(239, 197, 175);
+            color:rgb(149, 69, 26);
+        }
+    }
+    &-cart-btn {
+        margin: 0;
+    }
+    &-door-btn {}
+    &-logo-wrapper {
+        width: $header-height * 0.75;
+        height: $header-height * 0.75;
+        background-color: rgb(247, 226, 215);
+        border-radius: 50%;
+        border: 2px solid rgb(239, 197, 175);
+        box-sizing: border-box;
+    }
+}
+.cart {
+    position: absolute;
+    top: $header-height * 0.85;
+    right: 0;
+    max-width: $header-height * 8;
+    background-color: rgb(247, 226, 215);
+    border: 2px solid rgb(185, 122, 87);
+    box-sizing: border-box;
+    border-radius: 15px;
+    padding: $header-height * 0.15;
+
+    &-controlers {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+        &-item {
+            margin-left: 20px;
+        }
+
+        &-sum,
+        &-quantity {
+            color: rgb(149, 69, 26);
+            font-weight: 600;
+            font-size: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        
+        &-pay-btn,
+        &-close-btn {
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 20px;
+            background-color: rgb(247, 226, 215);
+            border: 2px solid rgb(239, 197, 175);
+            color: rgb(149, 69, 26);
+            outline: none;
+            height: $header-height / 3;
+            box-sizing: border-box;
+            line-height: $header-height / 3 - 4px;
+            padding: 0 10px;
+            border-radius: 5px;
+            transition: background-color 300ms ease-out,
+                        border-color 300ms ease-out,
+                        color 300ms ease-out;
+
+            &:hover {
+                background-color: rgb(149, 69, 26);
+                color: rgb(239, 197, 175);
+                border-color: rgb(247, 226, 215);
+            }
+
+            &:active {
+                background-color: rgb(247, 226, 215);
+                border-color: rgb(239, 197, 175);
+                color: rgb(149, 69, 26);
+            }
+        }
+    }
+
+    &-items {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+
+        &-item {
+            margin-top: $header-height * 0.15;
+            display: flex;
+            box-sizing: border-box;
+            padding: $header-height * 0.15;
+            background-color: rgb(255, 255, 255);
+            border: 2px solid rgb(185, 122, 87);
+            border-radius: 15px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 20px;
+            font-weight: 500;
+
+            &-img {
+                width: $header-height * 3;
+            }
+            &-controlers {
+                margin-left: $header-height * 0.15;
+                display: flex;
+                flex-direction: column;
+                box-sizing: border-box;
+                justify-content: space-evenly;
+                color: rgb(122, 60, 26);
+    
+                &-item {}
+                &-wrapper {
+                    align-self: center;
+
+                    &-btn {
+                        font-weight: 600;
+                        text-transform: uppercase;
+                        font-size: 20px;
+                        background-color: rgb(247, 226, 215);
+                        border: 2px solid rgb(239, 197, 175);
+                        color: rgb(149, 69, 26);
+                        outline: none;
+                        height: $header-height / 3;
+                        box-sizing: border-box;
+                        line-height: $header-height / 3 - 4px;
+                        padding: 0 10px;
+                        border-radius: 5px;
+                        transition: background-color 300ms ease-out,
+                                    border-color 300ms ease-out,
+                                    color 300ms ease-out;
+            
+                        &:hover {
+                            background-color: rgb(149, 69, 26);
+                            color: rgb(239, 197, 175);
+                            border-color: rgb(247, 226, 215);
+                        }
+            
+                        &:active {
+                            background-color: rgb(247, 226, 215);
+                            border-color: rgb(239, 197, 175);
+                            color: rgb(149, 69, 26);
+                        }
+                    }
+                    &-quantity {
+                        
+                        margin: 0 $header-height * 0.05;
+                    }
+                }
+            }
+        }
+    }
+}
+.main-footer {
+    background-color: rgb(185, 122, 87);
+    height: 50px;
+    width: 100%;
+    box-sizing: border-box;
+}
+.hide {
+    display: none;
+}
