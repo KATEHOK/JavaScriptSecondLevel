@@ -7,9 +7,9 @@ const cartItem = {
             <span class="cart-items-item-controlers-item">{{ item.product_name }}</span>
             <span class="cart-items-item-controlers-item">Single:&nbsp;\${{ item.price }}</span>
             <div class="cart-items-item-controlers-item cart-items-item-controlers-wrapper">
-                <button class="cart-items-item-controlers-wrapper-btn">-</button>
+                <button class="cart-items-item-controlers-wrapper-btn btn">-</button>
                 <span class="cart-items-item-controlers-wrapper-quantity">{{ item.quantity }}</span>
-                <button class="cart-items-item-controlers-wrapper-btn">+</button>
+                <button class="cart-items-item-controlers-wrapper-btn btn">+</button>
             </div>
             <span class="cart-items-item-controlers-item">Total:&nbsp;\${{ item.price * item.quantity }}</span>
         </div>
@@ -82,8 +82,8 @@ const cart = {
             <div class="cart-controlers">
                 <span class="cart-controlers-sum cart-controlers-item">Total coast:&nbsp;\${{ getTotal('price')}}</span>
                 <span class="cart-controlers-quantity cart-controlers-item">Total items:&nbsp;{{ getTotal('quantity') }}</span>
-                <button class="cart-controlers-pay-btn cart-controlers-item">Pay</button>
-                <button class="cart-controlers-close-btn cart-controlers-item" @click="$data.showCart = !$data.showCart">&times;</button>
+                <button class="cart-controlers-pay-btn cart-controlers-item btn">Pay</button>
+                <button class="cart-controlers-close-btn cart-controlers-item btn" @click="$data.showCart = !$data.showCart">&times;</button>
             </div>
             <div class="cart-items">
                 <cart-item v-for="item of cartItems" :key="item.id_product" :item="item"></cart-item>

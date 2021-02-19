@@ -19,12 +19,34 @@
                 <div class="main-header-logo-wrapper"></div>
                 <h1 class="main-header-title">GadgetHub</h1>
                 <div class="main-header-icons">
-                    <button class="main-header-cart-btn main-header-icon"
+                    <button class="main-header-cart-btn main-header-icon btn"
                         @click="$root.$refs.cart.showCart = !$root.$refs.cart.showCart">Cart</button>
-                    <button class="main-header-door-btn main-header-icon">Sign in</button>
+                    <button class="main-header-door-btn main-header-icon btn">Sign in</button>
                     <cart ref="cart"></cart>
                 </div>
             </header>
+            <main class="main">
+                <div class="main-products">
+                    <div class="main-products-item">
+                        <img src="img/id_product-123.png" alt="Photo" class="main-products-item-img">
+                        <span class="main-products-item-name">Notebook</span>
+                        <span class="main-products-item-price">$999</span>
+                        <button class="main-products-item-btn btn">buy</button>
+                    </div>
+                    <div class="main-products-item">
+                        <img src="img/id_product-123.png" alt="Photo" class="main-products-item-img">
+                        <span class="main-products-item-name">Notebook</span>
+                        <span class="main-products-item-price">$999</span>
+                        <button class="main-products-item-btn btn">buy</button>
+                    </div>
+                    <div class="main-products-item">
+                        <img src="img/id_product-456.png" alt="Photo" class="main-products-item-img">
+                        <span class="main-products-item-name">Notebook</span>
+                        <span class="main-products-item-price">$999</span>
+                        <button class="main-products-item-btn btn">buy</button>
+                    </div>
+                </div>
+            </main>
         </div>
 
         <footer class="main-footer container"></footer>
