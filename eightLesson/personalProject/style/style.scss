@@ -282,6 +282,7 @@ $container-max-width: 1440px;
             display: grid;
             gap: $header-height * 0.1;
             grid-template-columns: 1fr 1fr;
+            color: #7a3c1a;
             grid-template-areas: 
                 'img img'
                 'name price'

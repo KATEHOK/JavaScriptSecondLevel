@@ -359,6 +359,7 @@
   gap: 10px;
   -ms-grid-columns: 1fr 1fr;
       grid-template-columns: 1fr 1fr;
+  color: #7a3c1a;
       grid-template-areas: 'img img' 'name price' 'btn btn';
 }
 
