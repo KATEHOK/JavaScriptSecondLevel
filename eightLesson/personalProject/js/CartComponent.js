@@ -71,19 +71,17 @@ const cart = {
     mounted() {
         this.$root.getJson(`${API}${this.$data.cartUrl}`)
             .then(data => {
-                // console.dir(data);
                 for (let item of data.contents) {
-                    // console.log(item);
                     item.img = `img/id_product-${item.id_product}.png`;
                     this.$data.cartItems.push(item);
                     this.$data.cartConnection = true;
                 }
             })
-        //         .catch(() => this.$data.cartConnection = false);
+            .catch(() => this.$data.cartConnection = false);
     },
     template: `
         <div class="cart" v-show="$data.showCart">
-            <div class="cart-controlers">
+            <div class="cart-controlers" v-if="this.$data.cartConnection">
                 <span class="cart-controlers-sum cart-controlers-item">Total coast:&nbsp;\${{ getTotal('price') }}</span>
                 <span class="cart-controlers-quantity cart-controlers-item">Total items:&nbsp;{{ getTotal('quantity') }}</span>
                 <button class="cart-controlers-pay-btn cart-controlers-item btn">Pay</button>
@@ -91,8 +89,8 @@ const cart = {
             </div>
             <div class="cart-items">
                 <cart-item v-for="item of cartItems" :key="item.id_product" :item="item"></cart-item>
+                <span class="lost-connection-msg" v-if="!this.$data.cartConnection">We lost connection with server:(</span>
             </div>        
         </div>
     `
-    // <connection v-if="!this.$data.cartConnection" :name="'Cart'"></connection>
 }

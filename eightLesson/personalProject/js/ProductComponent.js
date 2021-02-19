@@ -23,21 +23,18 @@ const products = {
     template: `
             <div class="main-products">
                 <product v-for="item of this.$data.filtered" :key="item.id_product" :item="item"></product>
+                <span class="lost-connection-msg" v-if="!this.$data.catalogConnection">We lost connection with server:(</span>
             </div>
             `,
-    // <div class="products">
-    // <connection v-if="!this.catalogConnection" :name="'Catalog'"></connection>
 
     mounted() {
         this.$root.getJson(`${API}${this.catalogUrl}`)
             .then(data => {
                 for (let item of data) {
                     item.img = `img/id_product-${item.id_product}.png`;
-                    // console.dir(item);
                     this.$data.products.push(item);
                     this.$data.filtered.push(item);
                     this.$data.catalogConnection = true;
-                    // console.log(item);
                 }
             })
             .catch(() => this.$data.catalogConnection = false);

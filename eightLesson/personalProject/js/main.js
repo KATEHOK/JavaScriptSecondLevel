@@ -11,6 +11,6 @@ const app = new Vue({
         },
     },
     mounted() {
-        // console.log('worked')
+        console.log('Working:)')
     }
 });
