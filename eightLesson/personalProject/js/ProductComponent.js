@@ -5,7 +5,7 @@ const product = {
                 <img :src="item.img" alt="Photo" class="main-products-item-img">
                 <span class="main-products-item-name">{{ item.product_name }}</span>
                 <span class="main-products-item-price">\${{ item.price }}</span>
-                <button class="main-products-item-btn btn">buy</button>
+                <button class="main-products-item-btn btn" @click="$root.$refs.cart.addProduct(item)">buy</button>
             </div>
     `
 };
