@@ -92,15 +92,6 @@
   letter-spacing: 0.04em;
 }
 
-.main-header-icons {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
 .main-header-icon {
   font-size: large;
   line-height: 56px;
@@ -134,8 +125,30 @@
   color: #95451a;
 }
 
-.main-header-cart-btn {
-  margin: 0;
+.main-header-icons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.main-header-icons-filter:hover {
+  background-color: #f7e2d7;
+  border-color: #efc5af;
+  color: #95451a;
+}
+
+.main-header-icons-filter-input {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  border-bottom: 2px solid #95451a;
+  color: #95451a;
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 150px;
 }
 
 .main-header-logo-wrapper {
@@ -404,7 +417,7 @@
   display: none;
 }
 
-.lost-connection-msg {
+.msg {
   padding: 15px;
   font-family: Arial, Helvetica, sans-serif;
   color: #55260c;

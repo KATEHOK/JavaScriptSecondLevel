@@ -23,7 +23,8 @@ const products = {
     template: `
             <div class="main-products">
                 <product v-for="item of this.$data.filtered" :key="item.id_product" :item="item"></product>
-                <span class="lost-connection-msg" v-if="!this.$data.catalogConnection">We lost connection with server:(</span>
+                <span class="msg" v-if="!this.$data.catalogConnection">We lost connection with server:(</span>
+                <span class="msg" v-if="this.$data.catalogConnection && this.$data.filtered.length == 0">No matches:(</span>
             </div>
             `,
 

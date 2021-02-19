@@ -69,10 +69,6 @@ $container-max-width: 1440px;
         margin-left: 30px;
         letter-spacing: 0.04em;
     }
-    &-icons {
-        display: flex;
-        justify-content: space-between;
-    }
     &-icon {
         font-size: large;
         line-height: $header-height * 0.60 - 4px;
@@ -105,9 +101,30 @@ $container-max-width: 1440px;
             color:rgb(149, 69, 26);
         }
     }
-    &-cart-btn {
-        margin: 0;
+    &-icons {
+        display: flex;
+        justify-content: space-between;
+
+        &-filter {
+
+            &:hover {
+                background-color: rgb(247, 226, 215);
+                border-color: rgb(239, 197, 175);
+                color:rgb(149, 69, 26);
+            }
+            &-input {
+                background-color: transparent;
+                outline: none;
+                border: none;
+                border-bottom: 2px solid rgb(149, 69, 26);
+                color: rgb(149, 69, 26);
+                font-size: 20px;
+                font-family: Arial, Helvetica, sans-serif;
+                width: $header-height * 1.5;
+            }
+        }
     }
+    &-cart-btn {}
     &-door-btn {}
     &-logo-wrapper {
         width: $header-height * 0.75;
@@ -314,7 +331,7 @@ $container-max-width: 1440px;
 .hide {
     display: none;
 }
-.lost-connection-msg {
+.msg {
     padding: $header-height * 0.15;
     font-family: Arial, Helvetica, sans-serif;
     color: rgb(85, 38, 12);

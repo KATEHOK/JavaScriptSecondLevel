@@ -89,7 +89,7 @@ const cart = {
             </div>
             <div class="cart-items">
                 <cart-item v-for="item of cartItems" :key="item.id_product" :item="item"></cart-item>
-                <span class="lost-connection-msg" v-if="!this.$data.cartConnection">We lost connection with server:(</span>
+                <span class="msg" v-if="!this.$data.cartConnection">We lost connection with server:(</span>
             </div>        
         </div>
     `

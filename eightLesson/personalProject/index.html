@@ -6,8 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GadgetHub</title>
+    <script src="https://use.fontawesome.com/b8217314ad.js"></script>
     <link rel="stylesheet" href="style/style.css">
     <script defer src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script defer src="js/FilterComponent.js"></script>
     <script defer src="js/ProductComponent.js"></script>
     <script defer src="js/CartComponent.js"></script>
     <script defer src="js/main.js"></script>
@@ -20,6 +22,7 @@
                 <div class="main-header-logo-wrapper"></div>
                 <h1 class="main-header-title">GadgetHub</h1>
                 <div class="main-header-icons">
+                    <filt ref="filt"></filt>
                     <button class="main-header-cart-btn main-header-icon btn"
                         @click="$root.$refs.cart.showCart = !$root.$refs.cart.showCart">Cart</button>
                     <button class="main-header-door-btn main-header-icon btn">Sign in</button>
@@ -27,7 +30,7 @@
                 </div>
             </header>
             <main class="main">
-                <products></products>
+                <products ref="products"></products>
             </main>
         </div>
         <footer class="main-footer container"></footer>
