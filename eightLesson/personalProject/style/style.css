@@ -336,14 +336,14 @@
       flex-wrap: wrap;
   max-width: 90%;
   min-width: 365px;
-  padding: 7.5px 0;
+  padding: 7.5px;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
 }
 
 .main-products-item {
-  margin: 7.5px 15px;
+  margin: 7.5px;
   width: 350px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;

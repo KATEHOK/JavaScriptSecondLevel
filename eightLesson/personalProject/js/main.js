@@ -2,7 +2,7 @@ const API = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-a
 
 const app = new Vue({
     el: '#app',
-    components: { cart },
+    components: { cart, products },
     methods: {
         getJson(url) {
             return fetch(url)

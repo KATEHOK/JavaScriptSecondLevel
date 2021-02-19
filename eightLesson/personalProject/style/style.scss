@@ -265,11 +265,11 @@ $container-max-width: 1440px;
         flex-wrap: wrap;
         max-width: 90%;
         min-width: $header-height * 3.5 + $header-height * 0.15;
-        padding: $header-height * 0.075 0;
+        padding: $header-height * 0.075;
         justify-content: center;
 
         &-item {
-            margin: $header-height * 0.075 $header-height * 0.15;
+            margin: $header-height * 0.075;
             width: $header-height * 3.5;
             box-sizing: border-box;
             padding: $header-height * 0.15;

@@ -8,6 +8,7 @@
     <title>GadgetHub</title>
     <link rel="stylesheet" href="style/style.css">
     <script defer src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script defer src="js/ProductComponent.js"></script>
     <script defer src="js/CartComponent.js"></script>
     <script defer src="js/main.js"></script>
 </head>
@@ -26,29 +27,9 @@
                 </div>
             </header>
             <main class="main">
-                <div class="main-products">
-                    <div class="main-products-item">
-                        <img src="img/id_product-123.png" alt="Photo" class="main-products-item-img">
-                        <span class="main-products-item-name">Notebook</span>
-                        <span class="main-products-item-price">$999</span>
-                        <button class="main-products-item-btn btn">buy</button>
-                    </div>
-                    <div class="main-products-item">
-                        <img src="img/id_product-123.png" alt="Photo" class="main-products-item-img">
-                        <span class="main-products-item-name">Notebook</span>
-                        <span class="main-products-item-price">$999</span>
-                        <button class="main-products-item-btn btn">buy</button>
-                    </div>
-                    <div class="main-products-item">
-                        <img src="img/id_product-456.png" alt="Photo" class="main-products-item-img">
-                        <span class="main-products-item-name">Notebook</span>
-                        <span class="main-products-item-price">$999</span>
-                        <button class="main-products-item-btn btn">buy</button>
-                    </div>
-                </div>
+                <products></products>
             </main>
         </div>
-
         <footer class="main-footer container"></footer>
     </div>
 </body>
