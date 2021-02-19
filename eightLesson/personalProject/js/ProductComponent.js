@@ -1,13 +1,11 @@
 const product = {
     props: ['item'],
     template: `
-            <div class="product-item">
-                <div class="desc">
-                    <img :src="item.img" alt="Some img" class="product-item-img">
-                    <h3>{{item.product_name}}</h3>
-                    <p>\${{item.price}}</p>
-                    <button class="buy-btn" @click="$root.$refs.cart.addProduct(item)">Купить</button>
-                </div>
+            <div class="main-products-item">
+                <img :src="item.img" alt="Photo" class="main-products-item-img">
+                <span class="main-products-item-name">{{ item.product_name }}</span>
+                <span class="main-products-item-price">\${{ item.price }}</span>
+                <button class="main-products-item-btn btn" @click="$root.$refs.cart.addProduct(item)">buy</button>
             </div>
     `
 };
@@ -22,23 +20,22 @@ const products = {
         }
     },
     components: { product },
-    methods: {},
-    template: `<div class="products">
-                <connection v-if="!this.catalogConnection" :name="'Catalog'"></connection>
-                <product v-for="item of this.$data.filtered" 
-                :key="item.id_product"
-                :item="item"></product>
-               </div>`,
+    template: `
+            <div class="main-products">
+                <product v-for="item of this.$data.filtered" :key="item.id_product" :item="item"></product>
+                <span class="msg" v-if="!this.$data.catalogConnection">We lost connection with server:(</span>
+                <span class="msg" v-if="this.$data.catalogConnection && this.$data.filtered.length == 0">No matches:(</span>
+            </div>
+            `,
+
     mounted() {
         this.$root.getJson(`${API}${this.catalogUrl}`)
             .then(data => {
                 for (let item of data) {
                     item.img = `img/id_product-${item.id_product}.png`;
-                    console.dir(item);
                     this.$data.products.push(item);
                     this.$data.filtered.push(item);
                     this.$data.catalogConnection = true;
-                    // console.log(item);
                 }
             })
             .catch(() => this.$data.catalogConnection = false);

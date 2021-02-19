@@ -12,10 +12,11 @@ const filt = {
         }
     },
     template: `
-                <form action="#" class="search-form" @submit.prevent="$root.$refs.filt.filter">
-                    <input type="text" class="search-field" v-model="userSearch">
-                    <button type="submit" class="btn-search">
-                        <i class="fas fa-search"></i>
+                <form action="#" class="main-header-icons-filter main-header-icon" @submit.prevent="filter()">
+                    <input v-model="userSearch" type="text" name="filt" id="filt" class="main-header-icons-filter-input"
+                        placeholder="Gadget">
+                    <button type="submit" class="btn">
+                        <i class="fa fa-search" aria-hidden="true"></i>
                     </button>
                 </form>
                 `

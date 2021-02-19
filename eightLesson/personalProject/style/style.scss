@@ -1,7 +1,37 @@
 $header-height: 100px;
+$container-max-width: 1440px;
 * {
     margin: 0;
     padding: 0;
+}
+.btn {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 20px;
+    background-color: rgb(247, 226, 215);
+    border: 2px solid rgb(239, 197, 175);
+    color: rgb(149, 69, 26);
+    outline: none;
+    height: $header-height / 3;
+    box-sizing: border-box;
+    line-height: $header-height / 3 - 4px;
+    padding: 0 10px;
+    border-radius: 5px;
+    transition: background-color 300ms ease-out,
+                border-color 300ms ease-out,
+                color 300ms ease-out;
+
+    &:hover {
+        background-color: rgb(149, 69, 26);
+        color: rgb(239, 197, 175);
+        border-color: rgb(247, 226, 215);
+    }
+
+    &:active {
+        background-color: rgb(247, 226, 215);
+        border-color: rgb(239, 197, 175);
+        color: rgb(149, 69, 26);
+    }
 }
 .body-container {
     width: 100%;
@@ -13,7 +43,7 @@ $header-height: 100px;
 }
 .container {
     width: 100%;
-    max-width: 1440px;
+    max-width: $container-max-width;
 }
 .main-wrapper {
     flex-grow: 1;
@@ -38,10 +68,6 @@ $header-height: 100px;
         font-size: 44px;
         margin-left: 30px;
         letter-spacing: 0.04em;
-    }
-    &-icons {
-        display: flex;
-        justify-content: space-between;
     }
     &-icon {
         font-size: large;
@@ -75,9 +101,30 @@ $header-height: 100px;
             color:rgb(149, 69, 26);
         }
     }
-    &-cart-btn {
-        margin: 0;
+    &-icons {
+        display: flex;
+        justify-content: space-between;
+
+        &-filter {
+
+            &:hover {
+                background-color: rgb(247, 226, 215);
+                border-color: rgb(239, 197, 175);
+                color:rgb(149, 69, 26);
+            }
+            &-input {
+                background-color: transparent;
+                outline: none;
+                border: none;
+                border-bottom: 2px solid rgb(149, 69, 26);
+                color: rgb(149, 69, 26);
+                font-size: 20px;
+                font-family: Arial, Helvetica, sans-serif;
+                width: $header-height * 1.5;
+            }
+        }
     }
+    &-cart-btn {}
     &-door-btn {}
     &-logo-wrapper {
         width: $header-height * 0.75;
@@ -156,6 +203,7 @@ $header-height: 100px;
         &-item {
             margin-top: $header-height * 0.15;
             display: flex;
+            justify-content: space-between;
             box-sizing: border-box;
             padding: $header-height * 0.15;
             background-color: rgb(255, 255, 255);
@@ -166,7 +214,7 @@ $header-height: 100px;
             font-weight: 500;
 
             &-img {
-                width: $header-height * 3;
+                height: $header-height * 1.7;
             }
             &-controlers {
                 margin-left: $header-height * 0.15;
@@ -218,12 +266,130 @@ $header-height: 100px;
         }
     }
 }
+.main {
+    box-sizing: border-box;
+    padding: $header-height * 0.5 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    &-products {
+        background-color: rgb(247, 226, 215);
+        border: 2px solid rgb(185, 122, 87);
+        box-sizing: border-box;
+        border-radius: 15px;
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 90%;
+        min-width: $header-height * 3.5 + $header-height * 0.15;
+        padding: $header-height * 0.075;
+        justify-content: center;
+
+        &-item {
+            margin: $header-height * 0.075;
+            width: $header-height * 3.5;
+            box-sizing: border-box;
+            padding: $header-height * 0.15;
+            background-color: rgb(255, 255, 255);
+            border: 2px solid rgb(185, 122, 87);
+            border-radius: 15px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 20px;
+            font-weight: 500;
+            display: grid;
+            gap: $header-height * 0.1;
+            grid-template-columns: 1fr 1fr;
+            color: #7a3c1a;
+            grid-template-areas: 
+                'img img'
+                'name price'
+                'btn btn';
+
+            &-img {
+                height: $header-height * 2;
+                grid-area: img;
+                justify-self: center;
+            }
+            &-name {
+                grid-area: name;
+            }
+            &-price {
+                grid-area: price;
+            }
+            &-btn {
+                grid-area: btn;
+            }
+        }
+    }
+}
 .main-footer {
     background-color: rgb(185, 122, 87);
-    height: 50px;
+    padding: $header-height * 0.15;
     width: 100%;
     box-sizing: border-box;
+    display: grid;
+    gap: $header-height * 0.1;
+    grid-template-columns: 4fr 1fr;
+
+    &-item {
+        background-color: rgb(233, 160, 121);
+        padding: $header-height * 0.05;
+        border-radius: 5px;
+        color: rgb(105, 64, 42);
+        border: 2px solid rgb(239, 197, 175);
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    &-wrapper {
+        display: grid;
+        gap: $header-height * 0.15;
+        grid-template-areas:
+            'txt txt txt'
+            'date version copy';
+
+        &-txt {
+            grid-area: txt;
+        }
+        &-date {
+            grid-area: date;
+            text-align: center;
+        }
+        &-version {
+            grid-area: version;
+            text-align: center;
+        }
+        &-copy {
+            grid-area: copy;
+            text-align: center;
+        }
+    }
+    &-contucts {
+        grid-area: contucts;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        &-item {
+            list-style-type: none;
+                margin: 0 0 $header-height * 0.05;
+                display: block;
+
+            &-link {
+                text-decoration: none;
+                color: rgb(105, 64, 42);
+            }
+        }
+    }
 }
 .hide {
     display: none;
+}
+.msg {
+    padding: $header-height * 0.15;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(85, 38, 12);
+    background-color: rgb(239, 197, 175);
+    box-sizing: border-box;
+    border-radius: 15px;
+    font-size: 24px;
 }
