@@ -32,7 +32,6 @@ const products = {
         this.$root.getJson(`${API}${this.catalogUrl}`)
             .then(data => {
                 for (let item of data) {
-                    item.img = `img/id_product-${item.id_product}.png`;
                     this.$data.products.push(item);
                     this.$data.filtered.push(item);
                     this.$data.catalogConnection = true;
