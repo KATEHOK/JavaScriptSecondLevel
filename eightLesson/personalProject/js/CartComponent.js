@@ -41,38 +41,26 @@ const cart = {
             return total;
         },
         addProduct(item) {
-            this.$root.getJson(`${API}${this.addProductUrl}`)
-                .then(data => {
-                    if (data.result === 1) {
-                        let find = this.cartItems.find(el => el.id_product === item.id_product);
-                        if (find) {
-                            find.quantity++;
-                        } else {
-                            const prod = Object.assign({ quantity: 1 }, item);
-                            this.cartItems.push(prod)
-                        }
-                    }
-                })
+            let find = this.cartItems.find(el => el.id_product === item.id_product);
+            if (find) {
+                find.quantity++;
+            } else {
+                const prod = Object.assign({ quantity: 1 }, item);
+                this.cartItems.push(prod)
+            }
         },
         remove(item) {
-            this.$root.getJson(`${API}${this.addProductUrl}`)
-                .then(data => {
-                    if (data.result === 1) {
-                        if (item.quantity > 1) {
-                            item.quantity--;
-                        } else {
-                            this.cartItems.splice(this.cartItems.indexOf(item), 1);
-                        }
-                    }
-
-                })
+            if (item.quantity > 1) {
+                item.quantity--;
+            } else {
+                this.cartItems.splice(this.cartItems.indexOf(item), 1);
+            }
         },
     },
     mounted() {
-        this.$root.getJson(`${API}${this.$data.cartUrl}`)
+        this.$root.getJson(`${API}${this.cartUrl}`)
             .then(data => {
-                for (let item of data.contents) {
-                    item.img = `img/id_product-${item.id_product}.png`;
+                for (let item of data) {
                     this.$data.cartItems.push(item);
                     this.$data.cartConnection = true;
                 }

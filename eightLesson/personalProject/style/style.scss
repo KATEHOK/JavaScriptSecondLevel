@@ -215,6 +215,7 @@ $container-max-width: 1440px;
 
             &-img {
                 height: $header-height * 1.7;
+                max-width: 100%;
             }
             &-controlers {
                 margin-left: $header-height * 0.15;
@@ -306,6 +307,7 @@ $container-max-width: 1440px;
                 'btn btn';
 
             &-img {
+                max-width: 100%;
                 height: $header-height * 2;
                 grid-area: img;
                 justify-self: center;
