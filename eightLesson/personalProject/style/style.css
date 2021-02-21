@@ -261,6 +261,7 @@
 
 .cart-items-item-img {
   height: 170px;
+  max-width: 100%;
 }
 
 .cart-items-item-controlers {
