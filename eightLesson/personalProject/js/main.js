@@ -1,4 +1,4 @@
-const API = 'http://JavaScriptSecondLevel/eightLesson/personalProject/json';
+const API = 'https://raw.githubusercontent.com/KATEHOK/JavaScriptSecondLevel/main/eightLesson/personalProject/json/';
 
 const app = new Vue({
     el: '#app',
