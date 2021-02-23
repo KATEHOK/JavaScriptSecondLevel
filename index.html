@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GadgetHub</title>
+    <script src="https://use.fontawesome.com/b8217314ad.js"></script>
+    <link rel="stylesheet" href="style/style.css">
+    <script defer src="js/Vue.js"></script>
+    <script defer src="js/FilterComponent.js"></script>
+    <script defer src="js/ProductComponent.js"></script>
+    <script defer src="js/CartComponent.js"></script>
+    <script defer src="js/main.js"></script>
+</head>
+
+<body>
+    <div class="body-container" id="app">
+        <div class="main-wrapper container">
+            <header class="main-header">
+                <div class="main-header-logo-wrapper"></div>
+                <h1 class="main-header-title">GadgetHub</h1>
+                <div class="main-header-icons">
+                    <filt ref="filt"></filt>
+                    <button class="main-header-cart-btn main-header-icon btn"
+                        @click="$root.$refs.cart.showCart = !$root.$refs.cart.showCart">Cart</button>
+                    <button class="main-header-door-btn main-header-icon btn">Sign in</button>
+                    <cart ref="cart"></cart>
+                </div>
+            </header>
+            <main class="main">
+                <products ref="products"></products>
+            </main>
+        </div>
+        <footer class="main-footer container">
+            <div class="main-footer-wrapper">
+                <p class="main-footer-wrapper-txt main-footer-item">Lorem ipsum dolor sit amet consectetur
+                    adipisicing elit.
+                    Praesentium magnam non
+                    nihil odio, commodi natus, laboriosam voluptatem et eius neque vel? Deleniti ut itaque soluta optio
+                    rerum tenetur illum assumenda.</p>
+                <span class="main-footer-wrapper-date main-footer-item">19.02.2021</span>
+                <span class="main-footer-wrapper-version main-footer-item">8.1.8.15.13</span>
+                <span class="main-footer-wrapper-copy main-footer-item">&copy;All rights reserved 2021</span>
+            </div>
+            <ul class="main-footer-contacts main-footer-item">
+                <li class="main-footer-contucts-item">
+                    <a href="https://vk.com/id260666925" class="main-footer-contucts-item-link" target="_blank">VK</a>
+                </li>
+                <li class="main-footer-contucts-item">
+                    <a href="https://www.instagram.com/_4l4h_/" class="main-footer-contucts-item-link"
+                        target="_blank">Instagram</a>
+                </li>
+                <li class="main-footer-contucts-item">
+                    <a href="https://github.com/KATEHOK" class="main-footer-contucts-item-link"
+                        target="_blank">GitHub</a>
+                </li>
+                <li class="main-footer-contucts-item">a.timin2003@mail.ru</li>
+            </ul>
+        </footer>
+    </div>
+</body>
+
+</html>
