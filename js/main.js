@@ -1,5 +1,5 @@
 // const API = 'http://JavaScriptSecondLevel/json';
-const API = 'https://raw.githubusercontent.com/KATEHOK/JavaScriptSecondLevel/json';
+const API = 'https://raw.githubusercontent.com/KATEHOK/JavaScriptSecondLevel/eightLesson/json';
 
 const app = new Vue({
     el: '#app',
